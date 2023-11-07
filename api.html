@@ -1,8 +1,4 @@
-I'm sorry for any confusion, but as a text-based AI model, I don't have the capability to directly execute API calls or manipulate the Document Object Model (DOM) in a browser. However, I can guide you on how you can achieve this using JavaScript and HTML.
 
-Assuming you want to make an API call and display the data in a web page, here's an example using JavaScript and HTML:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,11 +22,11 @@ Assuming you want to make an API call and display the data in a web page, here's
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Make API call
+
     fetch('https://api.datausa.io/api/data?drilldowns=Nation&measures=Population')
       .then(response => response.json())
       .then(data => {
-        // Extract relevant information
+
         const populationData = data.data.map(entry => ({
           idNation: entry['ID Nation'],
           nation: entry['Nation'],
@@ -38,7 +34,7 @@ Assuming you want to make an API call and display the data in a web page, here's
           population: entry['Population']
         }));
 
-        // Display data in the table
+
         const tableBody = document.getElementById('populationData');
         populationData.forEach(entry => {
           const row = tableBody.insertRow();
@@ -54,8 +50,3 @@ Assuming you want to make an API call and display the data in a web page, here's
 
 </body>
 </html>
-```
-
-This example uses the `fetch` API to make an asynchronous request to the datausa.io API, and then it processes the response and updates the DOM accordingly. Make sure to replace the URL in the `fetch` function with the correct API endpoint if needed.
-
-Remember to handle errors appropriately in a production environment and consider using HTTPS for security.
